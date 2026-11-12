@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fffce8">
-<title>Sow</title>
-<meta name="description" content="Sow Cake Lounge: cafés especiais, bolos, toasts, almoço e comidinhas feitas com afeto. Opções veganas, sem glúten e fit. Peça pelo WhatsApp.">
+<title>Sow Cake Lounge</title>
+<meta name="description" content="Sow Cake Lounge, Vila Mariana e Aclimação: cafés, bolos, toasts, almoço e comidinhas feitas com afeto. Peça pelo WhatsApp.">
 <meta property="og:title" content="Sow Cake Lounge">
 <meta property="og:description" content="Cafés, bolos, toasts, almoço e comidinhas feitas com afeto.">
 <meta property="og:image" content="assets/img/og-image.jpg">
@@ -181,6 +181,45 @@
     color: var(--brick);
   }
 
+
+  .profile { text-align: center; margin-bottom: 26px; }
+  .avatar {
+    width: 150px; height: 150px; margin: 0 auto; border-radius: 50%;
+    background: var(--card); border: 1px solid var(--border);
+    box-shadow: 0 8px 26px rgba(80, 45, 25, 0.12);
+    display: grid; place-items: center;
+  }
+  .avatar img { width: 66%; height: auto; display: block; }
+  .profile h1 {
+    margin: 18px 0 0; font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800; font-size: 1.75rem; color: var(--brick); line-height: 1.1;
+  }
+  .where {
+    margin: 8px 0 0; display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.95rem; font-weight: 500; color: var(--ink);
+  }
+  .where svg { width: 16px; height: 16px; color: var(--brick); }
+  .socials { margin-top: 14px; display: flex; justify-content: center; gap: 12px; }
+  .socials a {
+    width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--card); border: 1px solid var(--border); color: var(--brick);
+  }
+  .socials a:hover { border-color: var(--brick); }
+  .socials svg { width: 22px; height: 22px; }
+
+  .group-label {
+    margin: 22px 0 2px; text-align: center; font-family: var(--script);
+    font-size: 2.1rem; line-height: 1; color: var(--brick);
+  }
+  .group-label:first-child { margin-top: 0; }
+
+  .about {
+    border-radius: 14px; background: var(--card); border: 1px solid var(--border);
+    padding: 22px 22px; text-align: center; font-size: 0.98rem; line-height: 1.6;
+    font-weight: 500; color: var(--ink); box-shadow: 0 2px 10px rgba(80, 45, 25, 0.06);
+  }
+  .card.with-map .label small { font-weight: 300; color: var(--ink-dim); }
+
   footer {
     flex: 0 0 auto;
     text-align: center;
@@ -216,83 +255,67 @@
 
 <div class="wrap">
 
-  <header class="lockup reveal">
-    <img src="assets/img/logo.png" alt="Sow">
-    <p class="sub" data-s="store_subtitle">Cake Lounge</p>
-    <p class="tagline" data-s="tagline">Surpreender pelo sabor e pelo servir: cafés, bolos e comidinhas feitas com afeto.</p>
+  <header class="profile reveal">
+    <div class="avatar"><img src="assets/img/logo.png" alt="Sow"></div>
+    <h1><span data-s="store_name">Sow</span> <span data-s="store_subtitle">Cake Lounge</span></h1>
+    <p class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.9"/></svg><span data-s="tagline">Vila Mariana &amp; Aclimação</span></p>
     <p class="hours" data-s="hours" hidden></p>
+    <div class="socials">
+      <a id="iconInstagram" href="https://instagram.com/sowcakelounge" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a class="js-wa" href="https://wa.me/5511971414381" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.75 13.5L3 21l4.65-1.22A9 9 0 1 0 12 3Z"/><path d="M8.5 8.2c.2-.45.4-.46.6-.47.16 0 .35 0 .5.02.16.02.38-.06.6.46.22.53.75 1.84.82 1.98.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.21 2.16 1.35.27.13.42.11.58-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.13.45.2.51.31.07.13.07.71-.16 1.4-.24.68-1.38 1.3-1.9 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.96-.31-1.66-.6-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46Z" fill="currentColor" stroke="none"/></svg></a>
+    </div>
   </header>
 
   <nav>
+    <h2 class="group-label reveal">Cardápio</h2>
     <a class="card primary reveal" href="cardapio">
-      <span class="icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/>
-          <path d="M17 10.5h1.5a2.5 2.5 0 0 1 0 5H17"/>
-          <path d="M9 2.8c-.8 1 .8 1.9 0 3M12.5 2.8c-.8 1 .8 1.9 0 3"/>
-        </svg>
-      </span>
-      <span class="body">
-        <span class="label">Cardápio</span>
-        <span class="meta">Cafés, chás, bolos, toasts, almoço e sucos</span>
-      </span>
-      <span class="chev" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-      </span>
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M17 10.5h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M9 2.8c-.8 1 .8 1.9 0 3M12.5 2.8c-.8 1 .8 1.9 0 3"/></svg></span>
+      <span class="body"><span class="label">Cardápio completo</span><span class="meta">Cafés, chás, bolos, toasts, almoço e sucos</span></span>
+      <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
     </a>
 
-    <a class="card reveal" id="linkWhatsapp" href="https://wa.me/5511971414381" target="_blank" rel="noopener">
-      <span class="icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3a9 9 0 0 0-7.75 13.5L3 21l4.65-1.22A9 9 0 1 0 12 3Z"/>
-          <path d="M8.5 8.2c.2-.45.4-.46.6-.47.16 0 .35 0 .5.02.16.02.38-.06.6.46.22.53.75 1.84.82 1.98.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.21 2.16 1.35.27.13.42.11.58-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.13.45.2.51.31.07.13.07.71-.16 1.4-.24.68-1.38 1.3-1.9 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.96-.31-1.66-.6-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46Z" fill="currentColor" stroke="none"/>
-        </svg>
-      </span>
-      <span class="body">
-        <span class="label">Encomendas e delivery</span>
-        <span class="meta">Festas, bolos inteiros e pedidos: <span id="metaWhatsapp">(11) 97141-4381</span></span>
-      </span>
-      <span class="chev" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-      </span>
+    <h2 class="group-label reveal">Contato</h2>
+    <a class="card  reveal" hidden id="linkPhone" href="tel:" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3l1.6 4-2 1.3a11 11 0 0 0 5.6 5.6l1.3-2 4 1.6v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></svg></span>
+      <span class="body"><span class="label">Telefone</span><span class="meta" id="metaPhone"></span></span>
+      <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="card js-wa reveal" href="https://wa.me/5511971414381" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.75 13.5L3 21l4.65-1.22A9 9 0 1 0 12 3Z"/><path d="M8.5 8.2c.2-.45.4-.46.6-.47.16 0 .35 0 .5.02.16.02.38-.06.6.46.22.53.75 1.84.82 1.98.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.21 2.16 1.35.27.13.42.11.58-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.13.45.2.51.31.07.13.07.71-.16 1.4-.24.68-1.38 1.3-1.9 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.96-.31-1.66-.6-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46Z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="body"><span class="label">WhatsApp</span><span class="meta"><span class="js-wa-num">(11) 97141-4381</span> · Vila Mariana &amp; Aclimação</span></span>
+      <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
     </a>
 
-    <a class="card with-map reveal" id="linkMaps" href="#" target="_blank" rel="noopener" hidden>
-      <span class="map-frame">
-        <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa da localização da Sow" tabindex="-1" aria-hidden="true"></iframe>
-      </span>
+    <h2 class="group-label reveal">Faça seu pedido</h2>
+    <a class="card  reveal" href="cardapio">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></svg></span>
+      <span class="body"><span class="label">Montar pedido</span><span class="meta">Escolha no cardápio e envie pronto pelo WhatsApp</span></span>
+      <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="card js-wa reveal" href="https://wa.me/5511971414381" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.75 13.5L3 21l4.65-1.22A9 9 0 1 0 12 3Z"/><path d="M8.5 8.2c.2-.45.4-.46.6-.47.16 0 .35 0 .5.02.16.02.38-.06.6.46.22.53.75 1.84.82 1.98.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.21 2.16 1.35.27.13.42.11.58-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.13.45.2.51.31.07.13.07.71-.16 1.4-.24.68-1.38 1.3-1.9 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.96-.31-1.66-.6-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46Z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="body"><span class="label">Encomendas e delivery</span><span class="meta">Festas, bolos inteiros e pedidos pelo WhatsApp</span></span>
+      <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
+    </a>
+
+    <h2 class="group-label reveal"><span data-s="store_name">Sow</span> <span data-s="store_subtitle">Cake Lounge</span></h2>
+    <p class="about reveal" data-s="about">Um movimento em forma de espaço. Um desplugar, um ambiente para relaxar e sentir saberes e sabores. Gentileza que gera envolvimento. Mais do que um Cake Lounge, um Social Lounge que oferece vivências que alimentam.</p>
+
+    <h2 class="group-label reveal" id="unitsLabel">Nossas casas</h2>
+    <a class="card with-map reveal" id="unit1" href="#" target="_blank" rel="noopener" hidden>
+      <span class="map-frame"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa da unidade" tabindex="-1" aria-hidden="true"></iframe></span>
       <span class="card-inner">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/>
-            <circle cx="12" cy="10.2" r="2.9"/>
-          </svg>
-        </span>
-        <span class="body">
-          <span class="label">Como chegar</span>
-          <span class="meta" data-s="address"></span>
-        </span>
-        <span class="chev" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-        </span>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.9"/></svg></span>
+        <span class="body"><span class="label" data-s="unit1_name"></span><span class="meta" data-s="unit1_address"></span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
       </span>
     </a>
-
-    <a class="card reveal" id="linkInstagram" href="https://instagram.com/sowcakelounge" target="_blank" rel="noopener">
-      <span class="icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
-        </svg>
-      </span>
-      <span class="body">
-        <span class="label">Instagram</span>
-        <span class="meta" id="metaInstagram">@sowcakelounge</span>
-      </span>
-      <span class="chev" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    <a class="card with-map reveal" id="unit2" href="#" target="_blank" rel="noopener" hidden>
+      <span class="map-frame"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa da unidade" tabindex="-1" aria-hidden="true"></iframe></span>
+      <span class="card-inner">
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.2" r="2.9"/></svg></span>
+        <span class="body"><span class="label" data-s="unit2_name"></span><span class="meta" data-s="unit2_address"></span></span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
       </span>
     </a>
 
@@ -315,8 +338,11 @@
 
 <script>
   (function () {
-    var f = document.getElementById('mapFrame');
-    var maps = document.getElementById('linkMaps');
+    var DEFAULTS = {
+      unit1_name: 'Vila Mariana', unit1_address: 'Av. Conselheiro Rodrigues Alves, 256 — Vila Mariana, São Paulo/SP',
+      unit2_name: 'Aclimação', unit2_address: 'Rua Castro Alves, 517 — Aclimação, São Paulo/SP',
+      whatsapp: '11971414381', phone: '', instagram: 'sowcakelounge'
+    };
 
     function phone(d) {
       d = String(d).replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '');
@@ -324,32 +350,46 @@
            : d.length === 10 ? '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6) : d;
     }
 
-    // Textos e links editáveis no /admin. Sem servidor fica o que já está no HTML.
+    function apply(s) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-s]'), function (n) {
+        var v = s[n.getAttribute('data-s')];
+        if (v === undefined) return;
+        n.textContent = v;
+        if (n.hasAttribute('hidden') || !v) n.hidden = !v;
+      });
+      var wa = String(s.whatsapp || '').replace(/\D/g, '');
+      var waUrl = 'https://wa.me/' + (wa.length <= 11 ? '55' + wa : wa);
+      Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) { a.href = waUrl; a.hidden = !wa; });
+      Array.prototype.forEach.call(document.querySelectorAll('.js-wa-num'), function (n) { n.textContent = phone(wa); });
+      var ig = document.getElementById('iconInstagram');
+      ig.href = 'https://instagram.com/' + encodeURIComponent(s.instagram || '');
+      ig.hidden = !s.instagram;
+      var tel = String(s.phone || '').replace(/\D/g, '');
+      var lp = document.getElementById('linkPhone');
+      lp.hidden = !tel;
+      lp.href = 'tel:+55' + tel;
+      document.getElementById('metaPhone').textContent = phone(tel);
+      var any = false;
+      [1, 2].forEach(function (n) {
+        var addr = s['unit' + n + '_address'];
+        var card = document.getElementById('unit' + n);
+        card.hidden = !addr;
+        if (!addr) return;
+        any = true;
+        var q = encodeURIComponent(addr);
+        card.href = 'https://www.google.com/maps/search/?api=1&query=' + q;
+        var f = card.querySelector('iframe');
+        var src = 'https://maps.google.com/maps?q=' + q + '&z=16&output=embed';
+        if (f.getAttribute('src') !== src) f.src = src;
+      });
+      document.getElementById('unitsLabel').hidden = !any;
+    }
+
+    apply(DEFAULTS);
+    // Textos e links editáveis no /admin. Sem servidor fica o padrão acima.
     fetch('/api/settings', { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
-      .then(function (data) {
-        var s = data.settings;
-        document.title = s.store_name;
-        Array.prototype.forEach.call(document.querySelectorAll('[data-s]'), function (n) {
-          var v = s[n.getAttribute('data-s')];
-          if (v === undefined) return;
-          n.textContent = v;
-          if (n.hasAttribute('hidden') || !v) n.hidden = !v;
-        });
-        var wa = String(s.whatsapp).replace(/\D/g, '');
-        document.getElementById('linkWhatsapp').href = 'https://wa.me/' + (wa.length <= 11 ? '55' + wa : wa);
-        document.getElementById('metaWhatsapp').textContent = phone(wa);
-        document.getElementById('linkInstagram').href = 'https://instagram.com/' + encodeURIComponent(s.instagram);
-        document.getElementById('metaInstagram').textContent = '@' + s.instagram;
-        document.getElementById('linkInstagram').hidden = !s.instagram;
-        // Sem endereço cadastrado, o cartão do mapa fica escondido.
-        maps.hidden = !s.address;
-        if (s.address) {
-          var q = encodeURIComponent(s.address);
-          maps.href = 'https://www.google.com/maps/search/?api=1&query=' + q;
-          f.src = 'https://maps.google.com/maps?q=' + q + '&z=16&output=embed';
-        }
-      })
+      .then(function (data) { document.title = data.settings.store_name + ' ' + data.settings.store_subtitle; apply(data.settings); })
       .catch(function () {});
   })();
 </script>

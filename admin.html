@@ -775,11 +775,16 @@
   var FIELDS = [
     ['store_name', 'Nome da loja', ''],
     ['store_subtitle', 'Subtítulo', 'Aparece embaixo do nome no topo do cardápio.'],
-    ['tagline', 'Frase da página inicial', ''],
-    ['hours', 'Horário de funcionamento', 'Ex: Seg a Sáb, 10h às 23h. Vazio = não aparece.'],
+    ['tagline', 'Linha embaixo do nome na página inicial', 'Ex: Vila Mariana & Aclimação'],
+    ['about', 'Texto "Sow Cake Lounge" da página inicial', '', true],
+    ['hours', 'Horário de funcionamento', 'Ex: Seg a Sáb, 8h às 19h. Vazio = não aparece.'],
     ['whatsapp', 'WhatsApp que recebe os pedidos', 'DDD + número, só números. Ex: 11971414381'],
+    ['phone', 'Telefone fixo', 'DDD + número. Vazio = o botão "Telefone" não aparece.'],
     ['instagram', 'Instagram', 'Só o usuário, sem @.'],
-    ['address', 'Endereço', 'Usado no botão "Como chegar" e no mapa.'],
+    ['unit1_name', 'Unidade 1 — nome', 'Ex: Vila Mariana'],
+    ['unit1_address', 'Unidade 1 — endereço', 'Usado no mapa e no "Como chegar". Vazio = a unidade não aparece.'],
+    ['unit2_name', 'Unidade 2 — nome', 'Ex: Aclimação'],
+    ['unit2_address', 'Unidade 2 — endereço', 'Vazio = a unidade não aparece.'],
     ['menu_title', 'Título do cardápio', ''],
     ['menu_footer', 'Aviso no rodapé do cardápio', ''],
     ['order_greeting', 'Mensagem que abre o pedido no WhatsApp', 'Vem antes da lista de produtos.', true]
@@ -798,8 +803,8 @@
     form.replaceChildren();
     FIELDS.forEach(function (f) {
       var input = f[3]
-        ? h('textarea', { name: f[0], rows: '2', maxlength: '300' })
-        : h('input', { name: f[0], maxlength: '300', inputmode: f[0] === 'whatsapp' ? 'tel' : null });
+        ? h('textarea', { name: f[0], rows: '3', maxlength: '400' })
+        : h('input', { name: f[0], maxlength: '400', inputmode: f[0] === 'whatsapp' || f[0] === 'phone' ? 'tel' : null });
       input.value = settings[f[0]] || '';
       form.appendChild(h('label', { class: 'field' }, h('span', null, f[1]), f[2] ? h('small', null, f[2]) : null, input));
     });

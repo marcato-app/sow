@@ -13,10 +13,15 @@ const CANONICAL_HOST = '';
 export const SETTINGS_DEFAULTS = {
   store_name: 'Sow',
   store_subtitle: 'Cake Lounge',
-  tagline: 'Surpreender pelo sabor e pelo servir: cafés, bolos e comidinhas feitas com afeto.',
+  tagline: 'Vila Mariana & Aclimação',
+  about: 'Um movimento em forma de espaço. Um desplugar, um ambiente para relaxar e sentir saberes e sabores. Gentileza que gera envolvimento. Mais do que um Cake Lounge, um Social Lounge que oferece vivências que alimentam.',
   whatsapp: '11971414381',
+  phone: '',
   instagram: 'sowcakelounge',
-  address: '',
+  unit1_name: 'Vila Mariana',
+  unit1_address: 'Av. Conselheiro Rodrigues Alves, 256 — Vila Mariana, São Paulo/SP',
+  unit2_name: 'Aclimação',
+  unit2_address: 'Rua Castro Alves, 517 — Aclimação, São Paulo/SP',
   hours: '',
   menu_title: 'Cardápio',
   menu_footer: 'Pedidos feitos na mesa e que não forem consumidos terão custo de embalagem caso sejam levados para viagem.',
@@ -208,11 +213,12 @@ route('PUT', '/api/admin/settings', admin(async (request, env) => {
   const stmts = [];
   for (const key of Object.keys(SETTINGS_DEFAULTS)) {
     if (!(key in b)) continue;
-    let value = clean(b[key], 300);
+    let value = clean(b[key], 400);
     if (key === 'whatsapp') {
       value = value.replace(/\D/g, '');
       if (value.length < 10 || value.length > 13) return badRequest('WhatsApp inválido — use DDD + número, ex: 11971414381');
     }
+    if (key === 'phone') value = value.replace(/\D/g, '');
     if (key === 'instagram') value = value.replace(/^@/, '').replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/\/.*$/, '');
     if (key === 'store_name' && !value) return badRequest('O nome da loja não pode ficar vazio');
     stmts.push(env.DB.prepare(

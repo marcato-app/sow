@@ -8,7 +8,7 @@ Site + cardápio digital + painel da Sow, no mesmo molde do projeto da Adega MM
 Cloudflare Worker (`src/index.js`) + D1 (`sow-db`). Sem build step — os
 `.html` da raiz são servidos como estão pelos assets do Worker.
 
-- `/` — página da bio (cardápio, WhatsApp, mapa, Instagram, manifesto)
+- `/` — link da bio (mesma estrutura do Beacons deles: cardápio, contato, pedido, texto "Sow Cake Lounge", as duas casas com mapa, manifesto)
 - `/cardapio` — cardápio com carrinho que monta o pedido no WhatsApp
 - `/mesa` (e `/loja`) — o mesmo cardápio, só consulta, pro QR das mesas
 - `/admin` — painel: editar produtos/preços, esgotado, ocultar, selos
