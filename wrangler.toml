@@ -1,0 +1,19 @@
+name = "sow"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Domínio próprio: ligar como Custom Domain pelo painel da Cloudflare e
+# preencher CANONICAL_HOST em src/index.js.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sow-db"
+database_id = "PREENCHER_DEPOIS_DE_CRIAR_O_BANCO"
+
+[assets]
+directory = "./"
+binding = "ASSETS"
+not_found_handling = "404-page"
+# O Worker passa na frente de tudo: precisa redirecionar o domínio sem www,
+# atender /api e servir /loja e /mesa com o mesmo arquivo do /cardapio.
+run_worker_first = true

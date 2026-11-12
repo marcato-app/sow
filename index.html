@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fffce8">
+<title>Sow</title>
+<meta name="description" content="Sow Cake Lounge: cafés especiais, bolos, toasts, almoço e comidinhas feitas com afeto. Opções veganas, sem glúten e fit. Peça pelo WhatsApp.">
+<meta property="og:title" content="Sow Cake Lounge">
+<meta property="og:description" content="Cafés, bolos, toasts, almoço e comidinhas feitas com afeto.">
+<meta property="og:image" content="assets/img/og-image.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap">
+<style>
+  :root {
+    --paper: #fffce8;
+    --card: #ffffff;
+    --ink: #3b2a24;
+    --ink-dim: #7d685a;
+    --brick: #8e3b2f;
+    --orange: #dd6436;
+    --forest: #2f5a3e;
+    --border: #e6d6b4;
+    --script: 'Allura', 'Segoe Script', cursive;
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background:
+      url('assets/img/sketch.webp') center bottom / min(760px, 100%) auto no-repeat,
+      var(--paper);
+    color: var(--ink);
+    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap {
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 44px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .lockup { text-align: center; margin-bottom: 30px; }
+  .lockup img {
+    width: 52%;
+    max-width: 190px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .lockup .sub {
+    margin: 10px 0 0;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .tagline {
+    margin: 14px auto 0;
+    font-family: var(--script);
+    font-size: 1.85rem;
+    line-height: 1.15;
+    color: var(--brick);
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+  .hours {
+    margin: 10px 0 0;
+    font-size: 0.84rem;
+    color: var(--ink-dim);
+  }
+
+  nav { display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 18px;
+    border-radius: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(80, 45, 25, 0.06);
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  }
+  .card:hover { border-color: var(--brick); box-shadow: 0 6px 18px rgba(80, 45, 25, 0.12); }
+  .card:active { transform: scale(0.985); }
+  .card:focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; }
+
+  .card.primary { background: var(--brick); border-color: var(--brick); color: #fff; }
+  .card.primary .icon, .card.primary .chev { color: #fff; }
+  .card.primary .meta { color: rgba(255, 255, 255, 0.82); }
+
+  .card .icon { flex: 0 0 auto; width: 26px; height: 26px; color: var(--brick); }
+  .card .icon svg { display: block; width: 100%; height: 100%; }
+  .card .body { flex: 1 1 auto; min-width: 0; }
+  .card .label { display: block; font-size: 1.06rem; font-weight: 600; line-height: 1.25; }
+  .card .meta {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.84rem;
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--ink-dim);
+  }
+  .card .chev {
+    flex: 0 0 auto;
+    width: 17px;
+    height: 17px;
+    color: var(--brick);
+    opacity: 0.6;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .card:hover .chev { opacity: 1; transform: translateX(2px); }
+  .card .chev svg { display: block; width: 100%; height: 100%; }
+
+  .card.with-map { flex-direction: column; align-items: stretch; gap: 0; padding: 0; overflow: hidden; }
+  .map-frame { position: relative; height: 160px; background: #f3ead2; border-bottom: 1px solid var(--border); }
+  .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; pointer-events: none; }
+  .card .card-inner { display: flex; align-items: center; gap: 15px; padding: 16px 18px; }
+
+  .manifesto {
+    margin-top: 6px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.7);
+  }
+  .manifesto summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--script);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--brick);
+  }
+  .manifesto summary::-webkit-details-marker { display: none; }
+  .manifesto summary::after {
+    content: '+';
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    color: var(--brick);
+    transition: transform 0.2s;
+  }
+  .manifesto[open] summary::after { transform: rotate(45deg); }
+  .manifesto .text { padding: 0 18px 16px; }
+  .manifesto p {
+    margin: 0 0 12px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--brick);
+  }
+
+  footer {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 40px 26px 190px;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .lockup.reveal { animation-delay: 0.05s; }
+    nav .reveal:nth-child(1) { animation-delay: 0.18s; }
+    nav .reveal:nth-child(2) { animation-delay: 0.26s; }
+    nav .reveal:nth-child(3) { animation-delay: 0.34s; }
+    nav .reveal:nth-child(4) { animation-delay: 0.42s; }
+    nav .reveal:nth-child(5) { animation-delay: 0.50s; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  }
+
+  @media (min-width: 480px) {
+    .wrap { padding-top: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="lockup reveal">
+    <img src="assets/img/logo.png" alt="Sow">
+    <p class="sub" data-s="store_subtitle">Cake Lounge</p>
+    <p class="tagline" data-s="tagline">Surpreender pelo sabor e pelo servir: cafés, bolos e comidinhas feitas com afeto.</p>
+    <p class="hours" data-s="hours" hidden></p>
+  </header>
+
+  <nav>
+    <a class="card primary reveal" href="cardapio">
+      <span class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/>
+          <path d="M17 10.5h1.5a2.5 2.5 0 0 1 0 5H17"/>
+          <path d="M9 2.8c-.8 1 .8 1.9 0 3M12.5 2.8c-.8 1 .8 1.9 0 3"/>
+        </svg>
+      </span>
+      <span class="body">
+        <span class="label">Cardápio</span>
+        <span class="meta">Cafés, chás, bolos, toasts, almoço e sucos</span>
+      </span>
+      <span class="chev" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="card reveal" id="linkWhatsapp" href="https://wa.me/5511971414381" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a9 9 0 0 0-7.75 13.5L3 21l4.65-1.22A9 9 0 1 0 12 3Z"/>
+          <path d="M8.5 8.2c.2-.45.4-.46.6-.47.16 0 .35 0 .5.02.16.02.38-.06.6.46.22.53.75 1.84.82 1.98.07.13.11.29.02.47-.09.18-.14.29-.27.44-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.21 2.16 1.35.27.13.42.11.58-.07.16-.18.68-.8.86-1.07.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.13.45.2.51.31.07.13.07.71-.16 1.4-.24.68-1.38 1.3-1.9 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.96-.31-1.66-.6-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46Z" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="body">
+        <span class="label">Encomendas e delivery</span>
+        <span class="meta">Festas, bolos inteiros e pedidos: <span id="metaWhatsapp">(11) 97141-4381</span></span>
+      </span>
+      <span class="chev" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="card with-map reveal" id="linkMaps" href="#" target="_blank" rel="noopener" hidden>
+      <span class="map-frame">
+        <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa da localização da Sow" tabindex="-1" aria-hidden="true"></iframe>
+      </span>
+      <span class="card-inner">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/>
+            <circle cx="12" cy="10.2" r="2.9"/>
+          </svg>
+        </span>
+        <span class="body">
+          <span class="label">Como chegar</span>
+          <span class="meta" data-s="address"></span>
+        </span>
+        <span class="chev" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </span>
+      </span>
+    </a>
+
+    <a class="card reveal" id="linkInstagram" href="https://instagram.com/sowcakelounge" target="_blank" rel="noopener">
+      <span class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="body">
+        <span class="label">Instagram</span>
+        <span class="meta" id="metaInstagram">@sowcakelounge</span>
+      </span>
+      <span class="chev" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <details class="manifesto reveal">
+      <summary>Nosso Manifesto</summary>
+      <div class="text">
+        <p>Nascemos com o propósito de sair do óbvio, de olhar para dentro, para fora e principalmente nos conectarmos com nosso entorno. Não nos bastava somente ser um espaço para servir alimentos, queríamos ir além, criar uma verdadeira experiência!</p>
+        <p>Com essa premissa, criamos a Sow, uma marca que nasceu da vontade de surpreender pelo sabor e pelo servir, criando uma conexão genuína e única com cada cliente!</p>
+        <p>Surpreender pelo sabor é criar cada produto que oferecemos com todo o cuidado: desde sua concepção, passando pela seleção dos ingredientes, preparação e exposição em nossa loja. Queremos que nossos clientes, ao escolher aquele bolo da vitrine ou o salgado do cardápio, tenham uma experiência gustativa incrível, que guardem aquele aroma e sabor experimentados com tanto afeto como guardamos daquelas comidas feitas por quem amamos.</p>
+        <p>Surpreender pelo servir é não entregar somente um produto ao cliente. Para nós, a experiência começa na chegada à loja, na acolhida por nossa equipe, no nosso espaço refletindo aconchego, convivência e carinho para quem adentrou nossas portas.</p>
+        <p>Não é só mais uma loja no bairro: somos preocupados em acrescentar ao nosso arredor. Buscamos conhecer nossos vizinhos, frequentadores, entender suas necessidades, acolher seus eventos e encontros para que eles entendam que somos parte de suas vidas e estamos ali para construir juntos uma vizinhança melhor!</p>
+        <p>Queremos um mundo melhor: compramos produtos de primeira linha, procuramos apresentar novos sabores e experiências aos nossos clientes, fazemos nossa parte para não prejudicar o meio ambiente, reciclando 100% do resíduo gerado bem como embalagens de fontes renováveis, buscando sempre formas de inovar para oferecer o melhor a toda a cadeia em que estamos envolvidos: sociedade, produtores, clientes.</p>
+      </div>
+    </details>
+  </nav>
+
+</div>
+
+<footer data-s="store_name">Sow</footer>
+
+<script>
+  (function () {
+    var f = document.getElementById('mapFrame');
+    var maps = document.getElementById('linkMaps');
+
+    function phone(d) {
+      d = String(d).replace(/\D/g, '').replace(/^55(?=\d{10,11}$)/, '');
+      return d.length === 11 ? '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7)
+           : d.length === 10 ? '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6) : d;
+    }
+
+    // Textos e links editáveis no /admin. Sem servidor fica o que já está no HTML.
+    fetch('/api/settings', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function (data) {
+        var s = data.settings;
+        document.title = s.store_name;
+        Array.prototype.forEach.call(document.querySelectorAll('[data-s]'), function (n) {
+          var v = s[n.getAttribute('data-s')];
+          if (v === undefined) return;
+          n.textContent = v;
+          if (n.hasAttribute('hidden') || !v) n.hidden = !v;
+        });
+        var wa = String(s.whatsapp).replace(/\D/g, '');
+        document.getElementById('linkWhatsapp').href = 'https://wa.me/' + (wa.length <= 11 ? '55' + wa : wa);
+        document.getElementById('metaWhatsapp').textContent = phone(wa);
+        document.getElementById('linkInstagram').href = 'https://instagram.com/' + encodeURIComponent(s.instagram);
+        document.getElementById('metaInstagram').textContent = '@' + s.instagram;
+        document.getElementById('linkInstagram').hidden = !s.instagram;
+        // Sem endereço cadastrado, o cartão do mapa fica escondido.
+        maps.hidden = !s.address;
+        if (s.address) {
+          var q = encodeURIComponent(s.address);
+          maps.href = 'https://www.google.com/maps/search/?api=1&query=' + q;
+          f.src = 'https://maps.google.com/maps?q=' + q + '&z=16&output=embed';
+        }
+      })
+      .catch(function () {});
+  })();
+</script>
+
+</body>
+</html>
