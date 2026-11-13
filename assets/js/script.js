@@ -1,7 +1,8 @@
 (function () {
   var CART_KEY = 'sowPedido';
   // /mesa (e /loja) é o cardápio do QR nas mesas: mesmo conteúdo, sem carrinho.
-  var LOJA = /^\/(loja|mesa)\/?$/.test(location.pathname);
+  // No GitHub Pages (site estático, sem /mesa) o mesmo modo sai por ?mesa.
+  var LOJA = /\/(loja|mesa)\/?$/.test(location.pathname) || /(^\?|&)mesa(=|&|$)/.test(location.search);
 
   var settings = {
     store_name: 'Sow',
