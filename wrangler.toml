@@ -8,7 +8,7 @@ compatibility_date = "2026-10-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "sow-db"
-database_id = "PREENCHER_DEPOIS_DE_CRIAR_O_BANCO"
+database_id = "f5054c59-2468-4fc2-a1f2-801fd75ac69e"
 
 [assets]
 directory = "./"

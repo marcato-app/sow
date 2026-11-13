@@ -29,8 +29,15 @@ Não há deploy automático de schema. Rodar no D1 Console, em ordem:
 `001_estrutura.sql`, `002_cardapio.sql`, `003_admin.sql`. Mudança nova de
 banco vira um arquivo numerado em `migrations/`.
 
-`wrangler.toml` está com `database_id` provisório: criar o banco `sow-db`
-na Cloudflare e colar o id antes do primeiro deploy.
+As 3 migrações já rodaram no `sow-db` de produção em 2026-11-13.
+
+## No ar
+
+https://sow.flat-salad-71d3.workers.dev (Worker `sow`). O primeiro deploy foi
+feito de uma sessão cujo proxy barrava o upload de assets (401), então subiu
+com os arquivos do site embutidos no script, num embrulho fora do repo. Um
+`wrangler deploy` normal com este `wrangler.toml` substitui aquilo sem
+problema.
 
 ## Testes
 
